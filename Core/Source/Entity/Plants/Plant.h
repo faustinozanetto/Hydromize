@@ -3,8 +3,17 @@
 #include "Core.h"
 
 namespace Hydromize {
+
+	enum EPlantType {
+		NONE,
+		LETTUCE,
+		KALE,
+	};
+
 	struct PlantDetails {
 		std::string m_Variety;
+		std::string m_ScientificName;
+		EPlantType m_Type;
 	};
 
 	class Plant : public Entity {

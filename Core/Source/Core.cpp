@@ -3,21 +3,27 @@
 #include "Core.h"
 #include <Entity/Plants/Plant.h>
 
+using namespace Hydromize;
+
 int main()
 {
 	std::cout << "Hello, World!" << std::endl;
-	Hydromize::Entity entity = Hydromize::Entity();
-	auto Manager = Hydromize::EntityManager<Hydromize::Entity>();
+	Entity entity = Entity();
+	auto Manager = EntityManager<Entity>();
 	Manager.AddEntity(entity);
 
-	Hydromize::PlantDetails details = { "Grand Green" };
-	auto lettuce = Hydromize::Plant(details);
-	auto plantsManager = Hydromize::EntityManager<Hydromize::Plant>();
+	PlantDetails details = { "Grand Green", "lactuca-sativa", EPlantType::LETTUCE };
+	auto lettuce = Plant(details);
+	auto plantsManager = EntityManager<Plant>();
 
 	plantsManager.AddEntity(lettuce);
 	for (auto plant : plantsManager.GetEntities()) {
+		auto plantDetails = plant.GetPlantDetails();
+		std::cout << "========================================================" << std::endl;
 		std::cout << "Plant UUID: " + uuids::to_string(plant.GetUUID()) << std::endl;
-		std::cout << "Plant Variety: " + plant.GetPlantDetails().m_Variety << std::endl;
+		std::cout << "Plant Variety: " + plantDetails.m_Variety << std::endl;
+		std::cout << "Plant Scientific: " + plantDetails.m_ScientificName << std::endl;
+		std::cout << "========================================================" << std::endl;
 	}
   return 0;
 }
