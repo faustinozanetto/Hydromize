@@ -10,3 +10,5 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 group "Dependencies"
   include "ThirdParty/Premake"
 group ""
+
+include "Core"
