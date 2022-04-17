@@ -1,5 +1,6 @@
 workspace "Hydromize"
   architecture "x86_64"
+  startproject "Core"
 
   configurations { "Debug", "Release" }
 
